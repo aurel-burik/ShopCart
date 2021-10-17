@@ -2,7 +2,7 @@
 $currency = '&#8377; '; //Currency Character or code
 $db_username = 'root';
 $db_password = '';
-$db_name = 'production';
+$db_name = 'test';
 $db_host = 'localhost';
 $shippingcost      = 1.33; //shipping cost
 $taxes              = array( //List your Taxes percent here.
