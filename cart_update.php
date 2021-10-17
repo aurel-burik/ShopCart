@@ -41,6 +41,10 @@ if(isset($_POST["product_qty"]) || isset($_POST["remove_code"]))
 			unset($_SESSION["cart_products"][$key]);
 		}	
 	}
+	
+	if (User::getUser($_SESSION["user"])->isVIPUser()) {
+		$new_product["product_price"] = 3* $price;
+	}
 }
 
 $return_url = (isset($_POST["return_url"]))?urldecode($_POST["return_url"]):''; //return url
