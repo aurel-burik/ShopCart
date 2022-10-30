@@ -29,17 +29,17 @@ if(isset($_SESSION["cart_products"]) && count($_SESSION["cart_products"])>0)
 	foreach ($_SESSION["cart_products"] as $cart_itm)
 	{
 		$product_name = $cart_itm["product_name"];
-		$product_qty = $cart_itm["product_qty"];
+		$product_quantity = $cart_itm["product_quantity"];
 		$product_price = $cart_itm["product_price"];
 		$product_code = $cart_itm["product_code"];
 		$product_color = $cart_itm["product_color"];
 		$bg_color = ($b++%2==1) ? 'odd' : 'even'; //zebra stripe
 		echo '<tr class="'.$bg_color.'">';
-		echo '<td>Qty <input type="text" size="2" maxlength="2" name="product_qty['.$product_code.']" value="'.$product_qty.'" /></td>';
+		echo '<td>Qty <input type="text" size="2" maxlength="2" name="product_quantity['.$product_code.']" value="'.$product_quantity.'" /></td>';
 		echo '<td>'.$product_name.'</td>';
 		echo '<td><input type="checkbox" name="remove_code[]" value="'.$product_code.'" /> Remove</td>';
 		echo '</tr>';
-		$subtotal = ($product_price * $product_qty);
+		$subtotal = ($product_price * $product_quantity);
 		$total = ($total + $subtotal);
 	}
 	echo '<td colspan="4">';

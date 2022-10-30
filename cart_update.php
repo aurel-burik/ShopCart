@@ -1,7 +1,7 @@
 <?php
 session_start();
 include_once("config.php");
-if(isset($_POST["type"]) && $_POST["type"]=='add' && $_POST["product_qty"]>0)
+if(isset($_POST["type"]) && $_POST["type"]=='update' && $_POST["product_quantity"]>0)
 {
 	foreach($_POST as $key => $value){ //add all post vars to new_product array
 		$new_product[$key] = filter_var($value, FILTER_SANITIZE_STRING);
@@ -25,13 +25,13 @@ if(isset($_POST["type"]) && $_POST["type"]=='add' && $_POST["product_qty"]>0)
     } 
 }
 //update or remove items 
-if(isset($_POST["product_qty"]) || isset($_POST["remove_code"]))
+if(isset($_POST["product_quantity"]) || isset($_POST["remove_code"]))
 {
 	//update item quantity in product session
-	if(isset($_POST["product_qty"]) && is_array($_POST["product_qty"])){
-		foreach($_POST["product_qty"] as $key => $value){
+	if(isset($_POST["product_quantity"]) && is_array($_POST["product_quantity"])){
+		foreach($_POST["product_quantity"] as $key => $value){
 			if(is_numeric($value)){
-				$_SESSION["cart_products"][$key]["product_qty"] = $value;
+				$_SESSION["cart_products"][$key]["product_quantity"] = $value;
 			}
 		}
 	}
