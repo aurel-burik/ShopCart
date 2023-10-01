@@ -24,24 +24,6 @@ if(isset($_POST["type"]) && $_POST["type"]=='update' && $_POST["product_quantity
         $_SESSION["cart_products"][$new_product['product_code']] = $new_product; //update or create product session with new item  
     } 
 }
-//update or remove items 
-if(isset($_POST["product_quantity"]) || isset($_POST["remove_code"]))
-{
-	//update item quantity in product session
-	if(isset($_POST["product_quantity"]) && is_array($_POST["product_quantity"])){
-		foreach($_POST["product_quantity"] as $key => $value){
-			if(is_numeric($value)){
-				$_SESSION["cart_products"][$key]["product_quantity"] = $value;
-			}
-		}
-	}
-	//remove an item from product session
-	if(isset($_POST["remove_code"]) && is_array($_POST["remove_code"])){
-		foreach($_POST["remove_code"] as $key){
-			unset($_SESSION["cart_products"][$key]);
-		}	
-	}
-}
 
 $return_url = (isset($_POST["return_url"]))?urldecode($_POST["return_url"]):''; //return url
 header('Location:'.$return_url);
