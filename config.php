@@ -6,7 +6,7 @@ $db_name = 'production';
 $db_host = 'localhost';
 $shippingcost      = 1.33; //shipping cost
 $taxes              = array( //List your Taxes percent here.
-                            'VAT' => 12, 
+                            'VAT' => 24, 
                             'Service Tax' => 5
                             );						
 //connect to MySql						
